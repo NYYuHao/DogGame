@@ -3,7 +3,20 @@
 <html>
 	<head>
 		<title> It's a game lol </title>
+		<link href="style.css" rel="stylesheets">
+		<script src="scripts.js"></script>
 	</head>
 
+	<body>
+		<p>
+			You currently have <b id="moneycount">0</b> moneys.<br>
+			Everytime you click, you gain +<b id="speedCount">1</b> moneys.
+		</p>
+
+		<p>
+			<button onclick="increaseMoney()">Increase money</button>
+			<button id="buySpeed" onclick="increaseSpeed()">Increase speed for 100 moneys</button>
+		</p>
+	</body>
 
 </html>
