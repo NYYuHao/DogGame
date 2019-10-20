@@ -3,20 +3,30 @@
 <html>
 	<head>
 		<title> It's a game lol </title>
-		<link href="style.css" rel="stylesheets">
+		<link href="https://stickershop.line-scdn.net/stickershop/v1/product/1239864/LINEStorePC/main.png;compress=true" rel="icon">
+		<link href="style.css" rel="stylesheet">
 		<script src="scripts.js"></script>
 	</head>
 
 	<body>
-		<p>
-			You currently have <b id="moneycount">0</b> moneys.<br>
-			Everytime you click, you gain +<b id="speedCount">1</b> moneys.
-		</p>
+		<div class="bubble">
+			You currently have <span id="moneycount">0</span> monies.<br>
+			Everytime you click, you gain +<span id="speedCount">1</span> monies. <br>
+			You currently have <span id="dogCount">0</span> dogs 
+			that each click once every <span id="tickCount">1000</span>ms.
+			<div style="margin-top:10px;">
+				<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1239864/LINEStorePC/main.png;compress=true" width = "300px">
+			</div>
+		</div>
 
-		<p>
+		<div class="bubble">
 			<button onclick="increaseMoney()">Increase money</button>
-			<button id="buySpeed" onclick="increaseSpeed()">Increase speed for 100 moneys</button>
-		</p>
+			<button id="buySpeed" onclick="increaseSpeed()">
+				Increase money/click for 100 monies
+			</button>
+			<button id="buyDog" onclick="increaseDogs()">Increase dogs for 1000 monies</button>
+		</div>
 	</body>
 
+	<script>updateCSS()</script>
 </html>
