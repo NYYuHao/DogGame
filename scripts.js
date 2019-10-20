@@ -1,9 +1,9 @@
 var money = 0;
 var speed = 1;
-var speedcost = 100;
+var speedcost = 10;
 var tickPeriod = 1000;
 var dogs = 0;
-var dogcost = 1000;
+var dogcost = 100;
 
 setInterval(gameLoop, tickPeriod);
 
