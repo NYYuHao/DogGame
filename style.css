@@ -1,0 +1,42 @@
+/* body {
+	background-image: url(https://www.trzcacak.rs/myfile/detail/425-4254664_dog-png-kawaii-kawaii-cute-anime-dogs.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+} */
+
+.bubble {
+	background-color: #ffd271b7;
+	border-style: none none none solid;
+	max-width: 100%;
+	padding: 10px;
+	margin: 10px;
+	border-width: 5px;
+	border-color: #ffae00;
+}
+
+.bubble:hover {
+	border-color: #ff6b09;
+}
+
+button {
+	background-color: #ffaf01fd;
+	padding: 20px;
+	border-radius: 7px;
+	border-style: none;
+	transition-duration: 0.05s;
+	box-shadow: 0 5px #664b0162;
+}
+
+button:hover {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+button:active {
+	box-shadow: 0 1px #664b0162;
+	transform: translateY(4px);
+}
+
+button:focus {
+	outline: 0;
+}
