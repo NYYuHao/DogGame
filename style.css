@@ -1,8 +1,8 @@
-/* body {
-	background-image: url(https://www.trzcacak.rs/myfile/detail/425-4254664_dog-png-kawaii-kawaii-cute-anime-dogs.png);
-	background-repeat: no-repeat;
-	background-position: top center;
-} */
+ body {
+ 	color: #000;
+	font: 14px / 18px arial;
+ 	margin: 0;
+}
 
 .bubble {
 	background-color: #ffd271b7;
@@ -18,13 +18,19 @@
 	border-color: #ff6b09;
 }
 
+.bubble2 {
+	padding-bottom: 15px;
+}
+
 button {
 	background-color: #ffaf01fd;
 	padding: 20px;
 	border-radius: 7px;
 	border-style: none;
-	transition-duration: 0.05s;
 	box-shadow: 0 5px #664b0162;
+	margin-right: 7px;
+	font: inherit;
+	cursor: pointer;
 }
 
 button:hover {
