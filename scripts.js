@@ -6,8 +6,13 @@ var dogs = 0;
 var dogcost = 100;
 
 function initialize() {
-	updateCSS();
 	setInterval(gameLoop, tickPeriod);
+	updateCSS();
+}
+
+function gameLoop() {
+	money += speed * dogs;
+	updateCSS();
 }
 
 function increaseMoney() {
@@ -48,9 +53,4 @@ function updateCSS() {
 		document.getElementById("buyDog").style = "opacity:1.0;cursor:pointer;";
 	else
 		document.getElementById("buyDog").style = "opacity:0.6;cursor:default;";
-}
-
-function gameLoop() {
-	money += speed * dogs;
-	updateCSS();
 }
