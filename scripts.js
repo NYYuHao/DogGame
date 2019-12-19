@@ -5,7 +5,15 @@ var tickPeriod = 1000;
 var dogs = 0;
 var dogcost = 100;
 
-setInterval(gameLoop, tickPeriod);
+function initialize() {
+	setInterval(gameLoop, tickPeriod);
+	updateCSS();
+}
+
+function gameLoop() {
+	money += speed * dogs;
+	updateCSS();
+}
 
 function increaseMoney() {
 	money += speed;
@@ -38,16 +46,11 @@ function updateCSS() {
 	document.getElementById("dogCount").innerHTML = dogs;
 	document.getElementById("tickCount").innerHTML = tickPeriod;
 	if (money >= speedcost)
-		document.getElementById("buySpeed").style = "opacity:1.0";
+		document.getElementById("buySpeed").style = "opacity:1.0;cursor:pointer;";
 	else
-		document.getElementById("buySpeed").style = "opacity:0.6";
+		document.getElementById("buySpeed").style = "opacity:0.6;cursor:default;";
 	if (money >= dogcost)
-		document.getElementById("buyDog").style = "opacity:1.0";
+		document.getElementById("buyDog").style = "opacity:1.0;cursor:pointer;";
 	else
-		document.getElementById("buyDog").style = "opacity:0.6";
-}
-
-function gameLoop() {
-	money += speed * dogs;
-	updateCSS();
+		document.getElementById("buyDog").style = "opacity:0.6;cursor:default;";
 }
