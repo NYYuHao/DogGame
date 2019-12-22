@@ -5,17 +5,17 @@
 }
 
 .bubble {
-	background-color: #ffd271b7;
+	background-color: #fd9;
 	border-style: none none none solid;
 	max-width: 100%;
 	padding: 10px;
 	margin: 10px;
 	border-width: 5px;
-	border-color: #ffae00;
+	border-color: #fb0;
 }
 
 .bubble:hover {
-	border-color: #ff6b09;
+	border-color: #f81;
 }
 
 .bubble2 {
@@ -23,11 +23,11 @@
 }
 
 button {
-	background-color: #ffaf01fd;
-	padding: 10px;
-	border-radius: 7px;
+	background-color: #fb0;
+	padding: 12px;
+	border-radius: 15px;
 	border-style: none;
-	box-shadow: 0 5px #664b0162;
+	box-shadow: 0 5px #7406;
 	margin-right: 7px;
 	margin-bottom: 15px; 
 	font: inherit;
@@ -40,12 +40,11 @@ button:first-child {
 }
 
 button:hover {
-	background-color: #ffffff;
-	color: #000000;
+	background-color: #fff;
 }
 
 button:active {
-	box-shadow: 0 1px #664b0162;
+	box-shadow: 0 1px #7406;
 	transform: translateY(4px);
 }
 
