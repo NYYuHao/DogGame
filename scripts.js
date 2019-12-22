@@ -65,4 +65,7 @@ function updateCSS() {
 			BT.buttons[i].style.cursor = 'default';
 		}
 	}
+	if (GD.data[1] >= 10) {
+		document.getElementById("prestige").style.display = 'block';
+	}
 }
