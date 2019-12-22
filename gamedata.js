@@ -1,22 +1,20 @@
 class GameData {
 	constructor() {
 		this.money = 0;
-		this.speed = 1;
-		this.speedcost = 10;
-		this.tickPeriod = 1000;
-		this.dogs = 0;
-		this.dogcost = 100;
 		this.interval;
-		//Cost array: 0 for speed, 1 for dogs
-		this.costs = [10, 100];
+
+		//Arrays: 0 for speed, 1 for dogs, 2 for tick
+		this.data = [1, 0, 1000];
+		this.costs = [10, 100, 1000];
 	}
 }
 
-class Buttons {
+class HTMLData {
 	constructor() {
+		this.increaseMoney = document.getElementById("increaseMoney");
 		this.buttons = [];
-		this.buttons.push(document.getElementById("increaseMoney"));
 		this.buttons.push(document.getElementById("buySpeed"));
 		this.buttons.push(document.getElementById("buyDog"));
+		this.buttons.push(document.getElementById("buyTicks"));
 	}
 }

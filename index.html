@@ -5,13 +5,11 @@
 		<title> It's a game lol </title>
 		<link href="images/tofu.png" rel="icon">
 		<link href="style.css" rel="stylesheet">
-		<script src="gamedata.js"></script>
-		<script src="scripts.js"></script>
 	</head>
 
 	<body onload="initialize()">
 		<div class="bubble">
-			You currently have <span id="moneycount">0</span> monies.<br>
+			You currently have <span id="moneyCount">0</span> monies.<br>
 			Everytime you click, you gain +<span id="speedCount">1</span> monies.<br>
 			You currently have <span id="dogCount">0</span> dogs 
 			that each click once every <span id="tickCount">1000</span>ms.
@@ -25,6 +23,10 @@
 				Increase money/click for 10 monies
 			</button>
 			<button id="buyDog" onmouseup="increaseDogs()">Increase dogs for 100 monies</button>
+			<button id="buyTicks" onmouseup="decreaseInterval()">Decrease interval by 10% for 1000 monies</button>
 		</div>
 	</body>
 </html>
+
+<script src="gamedata.js"></script>
+<script src="scripts.js"></script>
