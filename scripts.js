@@ -57,7 +57,7 @@ function updateCSS() {
 	document.getElementById("tickCount").innerHTML = GD.data[2].toFixed(0);
 	for (var i = 0; i < BT.buttons.length; i++) {
 		if (GD.money >= GD.costs[i])
-			BT.buttons[i].style = "opacity:1.0;cursor:pointer;visibility:visible";
+			BT.buttons[i].style = "opacity:1.0;cursor:pointer;display:inline-block";
 		else {
 			BT.buttons[i].style.opacity = 0.6;
 			BT.buttons[i].style.cursor = 'default';
