@@ -2,6 +2,9 @@ var GD = new GameData();
 var BT = new HTMLData();
 
 function initialize() {
+	//Hide all buttons at first
+	for (var i = 0; i < BT.buttons.length; i++)
+		BT.buttons[i].style.visibility = 'hidden'
 	GD.interval = setInterval(gameLoop, GD.data[2]);
 	updateCSS();
 }
@@ -54,11 +57,13 @@ function updateCSS() {
 	document.getElementById("moneyCount").innerHTML = GD.money;
 	document.getElementById("speedCount").innerHTML = GD.data[0];
 	document.getElementById("dogCount").innerHTML = GD.data[1];
-	document.getElementById("tickCount").innerHTML = GD.data[2];
+	document.getElementById("tickCount").innerHTML = GD.data[2].toFixed(0);
 	for (var i = 0; i < BT.buttons.length; i++) {
 		if (GD.money >= GD.costs[i])
-			BT.buttons[i].style = "opacity:1.0;cursor:pointer;";
-		else
-			BT.buttons[i].style = "opacity:0.6;cursor:default;"
+			BT.buttons[i].style = "opacity:1.0;cursor:pointer;visibility:visible";
+		else {
+			BT.buttons[i].style.opacity = 0.6;
+			BT.buttons[i].style.cursor = 'default';
+		}
 	}
 }
