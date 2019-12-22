@@ -3,7 +3,7 @@ class GameData {
 		this.money = 0;
 		this.interval;
 
-		//Arrays: 0 for speed, 1 for dogs, 2 for tick
+		//Arrays: 0 = speed, 1 = dogs, 2 = tick
 		this.data = [1, 0, 1000];
 		this.costs = [10, 100, 1000];
 	}
