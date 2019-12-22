@@ -1,55 +1,56 @@
-var money = 0;
-var speed = 1;
-var speedcost = 10;
-var tickPeriod = 1000;
-var dogs = 0;
-var dogcost = 100;
+var GD = new GameData();
+var BT = new Buttons();
 
 function initialize() {
-	setInterval(gameLoop, tickPeriod);
+	GD.interval = setInterval(gameLoop, GD.tickPeriod);
 	updateCSS();
 }
 
 function gameLoop() {
-	money += speed * dogs;
+	GD.money += GD.speed * GD.dogs;
 	updateCSS();
 }
 
 function increaseMoney() {
-	money += speed;
+	GD.money += GD.speed;
 	updateCSS();
 }
 
 function increaseSpeed() {
-	if (money >= speedcost) {
-		money -= speedcost;
-		speed += 1;
-		speedcost = Math.floor(speedcost*1.1);
-		document.getElementById("buySpeed").innerHTML = `Increase money/click for ${speedcost} monies`;
+	if (GD.money >= GD.costs[0]) {
+		GD.money -= GD.costs[0];
+		GD.speed += 1;
+		GD.costs[0] = Math.floor(GD.costs[0]*1.1);
+		document.getElementById("buySpeed").innerHTML = `Increase money/click for ${GD.costs[0]} monies`;
 		updateCSS();
 	}
 }
 
 function increaseDogs() {
-	if (money >= dogcost) {
-		money -= dogcost;
-		dogs += 1;
-		dogcost = Math.floor(dogcost*1.5);
-		document.getElementById("buyDog").innerHTML = `Increase dogs for ${dogcost} monies`;
+	if (GD.money >= GD.costs[1]) {
+		GD.money -= GD.costs[1];
+		GD.dogs += 1;
+		GD.costs[1] = Math.floor(GD.costs[1]*1.5);
+		document.getElementById("buyDog").innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
 		updateCSS();
 	}
 }
 
+function decreaseInterval() {
+	clearInterval(GD.interval);
+	GD.interval = setInterval(gameLoop, 500);
+}
+
 function updateCSS() {
-	document.getElementById("moneycount").innerHTML = money;
-	document.getElementById("speedCount").innerHTML = speed;
-	document.getElementById("dogCount").innerHTML = dogs;
-	document.getElementById("tickCount").innerHTML = tickPeriod;
-	if (money >= speedcost)
+	document.getElementById("moneycount").innerHTML = GD.money;
+	document.getElementById("speedCount").innerHTML = GD.speed;
+	document.getElementById("dogCount").innerHTML = GD.dogs;
+	document.getElementById("tickCount").innerHTML = GD.tickPeriod;
+	if (GD.money >= GD.costs[0])
 		document.getElementById("buySpeed").style = "opacity:1.0;cursor:pointer;";
 	else
 		document.getElementById("buySpeed").style = "opacity:0.6;cursor:default;";
-	if (money >= dogcost)
+	if (GD.money >= GD.costs[1])
 		document.getElementById("buyDog").style = "opacity:1.0;cursor:pointer;";
 	else
 		document.getElementById("buyDog").style = "opacity:0.6;cursor:default;";
