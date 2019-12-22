@@ -32,6 +32,11 @@ button {
 	margin-bottom: 15px; 
 	font: inherit;
 	cursor: pointer;
+	display: none;
+}
+
+button:first-child {
+	display: inline-block;
 }
 
 button:hover {
