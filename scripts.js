@@ -2,9 +2,6 @@ var GD = new GameData();
 var BT = new HTMLData();
 
 function initialize() {
-	//Hide all buttons at first
-	for (var i = 0; i < BT.buttons.length; i++)
-		BT.buttons[i].style.visibility = 'hidden'
 	GD.interval = setInterval(gameLoop, GD.data[2]);
 	updateCSS();
 }
