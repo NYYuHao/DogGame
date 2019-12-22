@@ -19,16 +19,17 @@
 }
 
 .bubble2 {
-	padding-bottom: 15px;
+	padding-bottom: 0px;
 }
 
 button {
 	background-color: #ffaf01fd;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 7px;
 	border-style: none;
 	box-shadow: 0 5px #664b0162;
 	margin-right: 7px;
+	margin-bottom: 15px; 
 	font: inherit;
 	cursor: pointer;
 }
