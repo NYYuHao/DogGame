@@ -50,12 +50,37 @@ function decreaseInterval() {
 	}
 }
 
+function increasePrestige() {
+	//Increase prestige
+	GD.prestigeCount += 1;
+	GD.prestigeCost *= 2;
+
+	//Reset data to starting
+	GD.money = 0;
+	GD.data = [1, 0, 1000];
+	GD.costs = [10, 100, 1000];
+	
+	//Update HTML to starting point
+	document.getElementById("prestigeCount").innerHTML = GD.prestigeCount;
+	document.getElementById("prestigeCost").innerHTML = GD.prestigeCost;
+	BT.buttons[0].innerHTML = `Increase money/click for ${GD.costs[0]} monies`;
+	BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
+	BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
+	
+	//Restart interval to 1000ms
+	clearInterval(GD.interval);
+	GD.interval = setInterval(gameLoop, GD.data[2]);
+	updateCSS();
+}
+
 function updateCSS() {
 	document.getElementById("moneyCount").innerHTML = GD.money;
-	document.getElementById("speedCount").innerHTML = GD.data[0];
-	document.getElementById("dogCount").innerHTML = GD.data[1];
-	document.getElementById("tickCount").innerHTML = GD.data[2].toFixed(0);
+
 	for (var i = 0; i < BT.buttons.length; i++) {
+		//Update data
+		BT.counts[i].innerHTML = GD.data[i].toFixed(0);
+
+		//Update buttons
 		if (GD.money >= GD.costs[i]) {
 			BT.buttons[i].style.opacity = 1.0;
 			BT.buttons[i].style.cursor = 'pointer';
@@ -65,7 +90,13 @@ function updateCSS() {
 			BT.buttons[i].style.cursor = 'default';
 		}
 	}
-	if (GD.data[1] >= 10) {
-		document.getElementById("prestige").style.display = 'block';
+	//Update prestige button
+	if (GD.data[1] >= GD.prestigeCost) {		
+		BT.prestigeBubble.style.display = 'block';
+		BT.prestigeButton.style.opacity = 1.0;
+		BT.prestigeButton.style.cursor = 'pointer';
+	} else {
+		BT.prestigeButton.style.opacity = 0.6;
+		BT.prestigeButton.style.cursor = 'default';
 	}
 }

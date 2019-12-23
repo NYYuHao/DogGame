@@ -31,8 +31,11 @@
 			</button>
 		</div>
 
-		<div class="bubble bubble2" id="prestige" style="display:none;">
-			<button id="increasePrestige">Prestige</button>
+		<div class="bubble" id="prestige" style="display:none;">
+			<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
+			You currently have <span id="prestigeCount">0</span> big dogs.<br>
+			You can prestige for <span id="prestigeCost">10</span> dogs.<br>
+			Upon prestige, you lose all monies and upgrades, but gain +1 big dog.
 		</div>
 	</body>
 </html>
