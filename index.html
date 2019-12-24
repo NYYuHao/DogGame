@@ -13,18 +13,19 @@
 				You currently have <span id="moneyCount">0</span> monies.<br>
 				Everytime you click, you gain +<span id="speedCount">1</span> monies.<br>
 				You currently have <span id="dogCount">0</span> doggos 
-				that each click once every <span id="tickCount">1000</span>ms.
+				that each click once every <span id="tickCount">1000</span>ms.<br>
+				In total, you are making <span id="MPS">0</span> monies/second.
 			</p>
 		</div>
 		<div class="bubble bubble2">
-			<button id="increaseMoney" onmouseup="increaseMoney()">Increase monies</button>
-			<button id="buySpeed" onmouseup="increaseSpeed()">
+			<button id="increaseMoney" onmouseup="increaseMoney(GD.data[0])">Increase monies</button>
+			<button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
 				Increase monies/click for 10 monies
 			</button>
-			<button id="buyDog" onmouseup="increaseDogs()">
+			<button id="buyDog" onmouseup="tryBuy(1, increaseDogs, 1)">
 				Increase doggos for 100 monies
 			</button>
-			<button id="buyTicks" onmouseup="decreaseInterval()">
+			<button id="buyTicks" onmouseup="tryBuy(2, decreaseInterval, 1)">
 				Decrease interval by 10% for 1000 monies
 			</button>
 		</div>
@@ -33,11 +34,13 @@
 			<p>
 				You currently have <span id="prestigeCount">0</span> mama doggos.<br>
 				You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
-				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.
+				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
+				Each mama doggo produces a new doggo every 10 ticks.
 			</p>
 		</div>
 		<div id="yard" class="dogs">
 		</div>
+		<div class="cred">&copy;&nbsp;&nbsp;Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 	</body>
 </html>
 
