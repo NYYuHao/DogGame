@@ -29,5 +29,10 @@ class HTMLData {
 		this.buttons.push(document.getElementById("buySpeed"));
 		this.buttons.push(document.getElementById("buyDog"));
 		this.buttons.push(document.getElementById("buyTicks"));
+
+		this.costs = [];
+		this.costs.push(document.getElementById("speedCost"));
+		this.costs.push(document.getElementById("dogCost"));
+		this.costs.push(document.getElementById("tickCost"));
 	}
 }
