@@ -83,6 +83,7 @@ function increasePrestige() {
 
 function updateCSS() {
 	document.getElementById("moneyCount").innerHTML = GD.money;
+	document.getElementById("MPS").innerHTML = (((GD.data[0] * GD.data[1]) / GD.data[2]) * 1000).toFixed(2);
 
 	for (var i = 0; i < BT.buttons.length; i++) {
 		//Update data
