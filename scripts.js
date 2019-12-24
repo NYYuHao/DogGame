@@ -8,56 +8,65 @@ function initialize() {
 
 function gameLoop() {
 	GD.money += GD.data[0] * GD.data[1];
+	if (GD.currentTick % 10 == 0 && GD.prestigeCount > 0) {
+		increaseDogs(GD.prestigeCount);
+		GD.currentTick = 0;
+	}
+	GD.currentTick += 1;
 	updateCSS();
 }
 
-function increaseMoney() {
-	GD.money += GD.data[0];
-	updateCSS();
-}
-
-function increaseSpeed() {
-	if (GD.money >= GD.costs[0]) {
-		GD.money -= GD.costs[0];
-		GD.data[0] += 1;
-		GD.costs[0] = Math.floor(GD.costs[0]*1.1);
-		BT.buttons[0].innerHTML = `Increase monies/click for ${GD.costs[0]} monies`;
-		updateCSS();
+//Try to purchase an upgrade, subtract from money if possible and increase cost
+//item: 0 = speed, 1 = dogs, 2 = tick
+//func: Corresponding increase function
+//num: Amount to buy
+function tryBuy(item, func, num) {
+	if (GD.money >= GD.costs[item]) {
+		GD.money -= GD.costs[item];
+		GD.costs[item] = Math.floor(GD.costs[item]*GD.costRate[item]);
+		func(num);
 	}
 }
 
-function increaseDogs() {
-	if (GD.money >= GD.costs[1]) {
-		GD.money -= GD.costs[1];
-		GD.data[1] += 1;
-		GD.costs[1] = Math.floor(GD.costs[1]*1.5);
-		BT.buttons[1].innerHTML = `Increase doggos for ${GD.costs[1]} monies`;
-		document.getElementById("yard").style.display = "block";
-		document.getElementById("yard").innerHTML += '<img src="images/dogs/' + 
+function increaseMoney(num) {
+	GD.money += num;
+	updateCSS();
+}
+
+//TODO: A lot of the math is screwed up when num > 1 for the following 3 functions
+//Figure that out sometime soon
+
+function increaseSpeed(num) {
+	GD.data[0] += num;
+	BT.buttons[0].innerHTML = `Increase monies/click for ${GD.costs[0]} monies`;
+	updateCSS();
+}
+
+function increaseDogs(num) {
+	GD.data[1] += num;
+	BT.buttons[1].innerHTML = `Increase doggos for ${GD.costs[1]} monies`;
+	BT.yard.style.display = "block";
+	for (var i = 0; i < num; i++)
+		BT.yard.innerHTML += '<img src="images/dogs/' + 
 			Math.floor(Math.random() * Math.floor(50)) + '.png">';
-		updateCSS();
-	}
+	updateCSS();
 }
 
-function decreaseInterval() {
-	if (GD.money >= GD.costs[2]) {
-		GD.money -= GD.costs[2];
-		GD.data[2] *= .9;
-		GD.costs[2] = Math.floor(GD.costs[2]*1.5);
-		BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
+function decreaseInterval(num) {
+	GD.data[2] *= Math.pow(.9, num);
+	BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
 
-		//Clear and restart interval
-		clearInterval(GD.interval);
-		GD.interval = setInterval(gameLoop, GD.data[2]);
-		updateCSS();
-	}
+	//Clear and restart interval
+	clearInterval(GD.interval);
+	GD.interval = setInterval(gameLoop, GD.data[2]);
+	updateCSS();
 }
 
 function increasePrestige() {
 	if (GD.data[1] >= GD.prestigeCost) {
 		//Increase prestige
 		GD.prestigeCount += 1;
-		GD.prestigeCost *= 2;
+		GD.prestigeCost *= 10;
 
 		//Reset data to starting
 		GD.money = 0;
@@ -71,8 +80,8 @@ function increasePrestige() {
 		BT.buttons[1].innerHTML = `Increase doggos for ${GD.costs[1]} monies`;
 		BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
 
-		document.getElementById("yard").style.display = "none";
-		document.getElementById("yard").innerHTML = "";
+		BT.yard.style.display = "none";
+		BT.yard.innerHTML = "";
 		
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
