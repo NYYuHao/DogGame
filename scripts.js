@@ -32,6 +32,8 @@ function increaseDogs() {
 		GD.data[1] += 1;
 		GD.costs[1] = Math.floor(GD.costs[1]*1.5);
 		BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
+		document.getElementById("yard").style.display = "block";
+		document.getElementById("yard").innerHTML += '<img src="images/dog_0.png">';
 		updateCSS();
 	}
 }
@@ -67,6 +69,9 @@ function increasePrestige() {
 		BT.buttons[0].innerHTML = `Increase money/click for ${GD.costs[0]} monies`;
 		BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
 		BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
+
+		document.getElementById("yard").style.display = "none";
+		document.getElementById("yard").innerHTML = "";
 		
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
@@ -84,14 +89,13 @@ function updateCSS() {
 
 		//Update buttons
 		if (GD.money >= GD.costs[i]) {
-			BT.buttons[i].style.opacity = 1.0;
-			BT.buttons[i].style.cursor = 'pointer';
 			BT.buttons[i].style.display = 'inline-block';
+			BT.buttons[i].disabled = false;
 		} else {
-			BT.buttons[i].style.opacity = 0.6;
-			BT.buttons[i].style.cursor = 'default';
+			BT.buttons[i].disabled = true;
 		}
 	}
+
 	//Update prestige button
 	if (GD.data[1] >= GD.prestigeCost) {		
 		BT.prestigeBubble.style.display = 'block';
