@@ -9,6 +9,15 @@
 	color: #000;
 }
 
+a {
+	color: #f81;
+	text-decoration: none;
+}
+
+a:hover {	
+	color: #fb0;
+}
+
 .bubble {
 	background-color: #fd9;
 	border-style: none none none solid;
@@ -83,4 +92,17 @@ button:disabled {
 
 .dogs img {
 	margin: 0 12px 9px 0;
+}
+
+.cred {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+}
+
+.cred:hover {
+	width: auto;
 }
