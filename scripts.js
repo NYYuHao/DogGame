@@ -32,6 +32,8 @@ function increaseDogs() {
 		GD.data[1] += 1;
 		GD.costs[1] = Math.floor(GD.costs[1]*1.5);
 		BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
+		document.getElementById("yard").innerHTML = document.getElementById("yard").innerHTML +
+			'<img src="images/dog_0.png">';
 		updateCSS();
 	}
 }
@@ -84,13 +86,10 @@ function updateCSS() {
 
 		//Update buttons
 		if (GD.money >= GD.costs[i]) {
-			BT.buttons[i].style.opacity = 1.0;
-			BT.buttons[i].style.cursor = 'pointer';
 			BT.buttons[i].style.display = 'inline-block';
-		} else {
-			BT.buttons[i].style.opacity = 0.6;
-			BT.buttons[i].style.cursor = 'default';
-		}
+			BT.buttons[i].disabled = false;
+		} else
+			BT.buttons[i].disabled = true;
 	}
 	//Update prestige button
 	if (GD.data[1] >= GD.prestigeCost) {		

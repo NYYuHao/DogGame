@@ -12,20 +12,29 @@
 	margin: 10px;
 	border-width: 5px;
 	border-color: #fb0;
+	background-image: url(images/bones.png);
 }
 
 .bubble:hover {
 	border-color: #f81;
 }
 
+.bubble p {
+	padding: 12px;
+	border-radius: 10px;
+	background-color: #fd99;
+	display: inline-block;
+	margin: 0;
+}
+
 .bubble2 {
-	padding-bottom: 0px;
+	padding-bottom: 0;
 }
 
 button {
 	background-color: #fb0;
 	padding: 12px;
-	border-radius: 8px;
+	border-radius: 10px;
 	border-style: none;
 	box-shadow: 0 5px #7406;
 	margin-right: 7px;
@@ -39,7 +48,7 @@ button:first-child {
 	display: inline-block;
 }
 
-button:hover {
+button:not(:disabled):hover {
 	background-color: #fff;
 }
 
@@ -50,4 +59,23 @@ button:active {
 
 button:focus {
 	outline: 0;
+}
+
+button:disabled {
+	color: #7406;
+	opacity: 0.6;
+	cursor: default;
+}
+
+.dogs {
+	margin: 10px;
+	padding: 22px 10px 10px 22px;
+	background-image: url(images/grass.png);
+	border-radius: 10px;
+	background-color: #9da;
+	display: none;
+}
+
+.dogs img {
+	margin: 0 12px 12px 0;
 }
