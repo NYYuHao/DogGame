@@ -21,7 +21,7 @@ function increaseSpeed() {
 		GD.money -= GD.costs[0];
 		GD.data[0] += 1;
 		GD.costs[0] = Math.floor(GD.costs[0]*1.1);
-		BT.buttons[0].innerHTML = `Increase money/click for ${GD.costs[0]} monies`;
+		BT.buttons[0].innerHTML = `Increase monies/click for ${GD.costs[0]} monies`;
 		updateCSS();
 	}
 }
@@ -31,9 +31,10 @@ function increaseDogs() {
 		GD.money -= GD.costs[1];
 		GD.data[1] += 1;
 		GD.costs[1] = Math.floor(GD.costs[1]*1.5);
-		BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
+		BT.buttons[1].innerHTML = `Increase doggos for ${GD.costs[1]} monies`;
 		document.getElementById("yard").style.display = "block";
-		document.getElementById("yard").innerHTML += '<img src="images/dog_0.png">';
+		document.getElementById("yard").innerHTML += '<img src="images/dogs/' + 
+			Math.floor(Math.random() * Math.floor(50)) + '.png">';
 		updateCSS();
 	}
 }
@@ -66,8 +67,8 @@ function increasePrestige() {
 		//Update HTML to starting point
 		document.getElementById("prestigeCount").innerHTML = GD.prestigeCount;
 		document.getElementById("prestigeCost").innerHTML = GD.prestigeCost;
-		BT.buttons[0].innerHTML = `Increase money/click for ${GD.costs[0]} monies`;
-		BT.buttons[1].innerHTML = `Increase dogs for ${GD.costs[1]} monies`;
+		BT.buttons[0].innerHTML = `Increase monies/click for ${GD.costs[0]} monies`;
+		BT.buttons[1].innerHTML = `Increase doggos for ${GD.costs[1]} monies`;
 		BT.buttons[2].innerHTML = `Decrease interval by 10% for ${GD.costs[2]} monies`;
 
 		document.getElementById("yard").style.display = "none";
