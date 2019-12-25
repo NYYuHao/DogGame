@@ -20,13 +20,13 @@
 		<div class="bubble bubble2">
 			<button id="increaseMoney" onmouseup="increaseMoney(GD.data[0])">Increase monies</button>
 			<button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
-				Increase monies/click for 10 monies
+				Increase monies/click for <span id="speedCost">10</span> monies
 			</button>
 			<button id="buyDog" onmouseup="tryBuy(1, increaseDogs, 1)">
-				Increase doggos for 100 monies
+				Increase doggos for <span id="dogCost">100</span> monies
 			</button>
 			<button id="buyTicks" onmouseup="tryBuy(2, decreaseInterval, 1)">
-				Decrease interval by 10% for 1000 monies
+				Decrease interval by 10% for <span id="tickCost">1000</span> monies
 			</button>
 		</div>
 		<div class="bubble" id="prestige" style="display:none;">
