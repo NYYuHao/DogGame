@@ -106,3 +106,7 @@ button:disabled {
 .cred:hover {
 	width: auto;
 }
+
+#prestige {
+	display: none;
+}

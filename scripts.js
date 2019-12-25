@@ -107,8 +107,8 @@ function updateCSS() {
 	//Update prestige button
 	if (GD.data[1] >= GD.prestigeCost) {		
 		BT.prestigeBubble.style.display = 'block';
-		BT.prestigeBubble.disabled = false;
+		BT.prestigeButton.disabled = false;
 	} else {
-		BT.prestigeBubble.disabled = true;
+		BT.prestigeButton.disabled = true;
 	}
 }
