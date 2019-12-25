@@ -44,10 +44,9 @@ function increaseSpeed(num) {
 
 function increaseDogs(num) {
 	GD.data[1] += num;
-	BT.yard.style.display = "block";
+	BT.yard.style.display = 'block';
 	for (var i = 0; i < num; i++)
-		BT.yard.innerHTML += '<img src="images/dogs/' + 
-			Math.floor(Math.random() * Math.floor(50)) + '.png">';
+		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
 	updateCSS();
 }
 
@@ -78,8 +77,8 @@ function increasePrestige() {
 		BT.costs[1].innerHTML = GD.costs[1];
 		BT.costs[2].innerHTML = GD.costs[2];
 
-		BT.yard.style.display = "none";
-		BT.yard.innerHTML = "";
+		BT.yard.style.display = 'none';
+		BT.yard.innerHTML = '';
 		
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
@@ -108,10 +107,8 @@ function updateCSS() {
 	//Update prestige button
 	if (GD.data[1] >= GD.prestigeCost) {		
 		BT.prestigeBubble.style.display = 'block';
-		BT.prestigeButton.style.opacity = 1.0;
-		BT.prestigeButton.style.cursor = 'pointer';
+		BT.prestigeBubble.disabled = false;
 	} else {
-		BT.prestigeButton.style.opacity = 0.6;
-		BT.prestigeButton.style.cursor = 'default';
+		BT.prestigeBubble.disabled = true;
 	}
 }
