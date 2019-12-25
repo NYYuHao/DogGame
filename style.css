@@ -1,4 +1,4 @@
- body {
+body {
  	color: #000;
 	font: 14px / 18px arial;
  	margin: 0;
@@ -84,9 +84,7 @@ button:disabled {
 .dogs {
 	margin: 10px;
 	padding: 22px 10px 10px 22px;
-	background-image: url(images/back/1.png);
 	border-radius: 10px;
-	background-color: #9da;
 	display: none;	
 }
 
@@ -94,17 +92,33 @@ button:disabled {
 	margin: 0 12px 9px 0;
 }
 
-.cred {
-	position: fixed;
-	bottom: 10px;
-	left: 10px;
-	width: 18px;
-	height: 18px;
-	overflow: hidden;
+#yard {
+	background-color: #9da;
+	background-image: url(images/back/1.png);
 }
 
-.cred:hover {
+#mamas {
+	background-color: #cbd;
+	background-image: url(images/back/2.png);
+}
+
+.cred {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+	background-color: #fff;
 	width: auto;
+	border-radius: 0 10px 0 0;
+}
+
+.cred span {
+	margin-left: 10px;
+	display: none;
+}
+
+.cred:hover span {
+	display: inline;
 }
 
 #prestige {
