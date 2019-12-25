@@ -27,6 +27,7 @@ a:hover {
 	border-width: 5px;
 	border-color: #fb0;
 	background-image: url(images/back/0.png);
+	border-radius: 0 10px 10px 0;
 }
 
 .bubble:hover {

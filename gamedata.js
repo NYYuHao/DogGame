@@ -19,6 +19,7 @@ class HTMLData {
 		this.prestigeButton = document.getElementById("increasePrestige");
 		this.prestigeBubble = document.getElementById("prestige");
 		this.yard = document.getElementById("yard");
+		this.mamas = document.getElementById("mamas");
 
 		this.counts = [];
 		this.counts.push(document.getElementById("speedCount"));

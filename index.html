@@ -29,21 +29,25 @@
 				Decrease interval by 10% for <span id="tickCost">1000</span> monies
 			</button>
 		</div>
-		<div class="bubble" id="prestige">
-			<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
-			<p>
-				You currently have <span id="prestigeCount">0</span> mama doggos.<br>
-				You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
-				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
-				Each mama doggo produces a new doggo every 10 ticks.
-			</p>
+		<div id="prestige">
+			<div class="bubble">
+				<p>
+					You currently have <span id="prestigeCount">0</span> mama doggos.<br>
+					You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
+					Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
+					Each mama doggo produces a new doggo every 10 ticks.
+				</p>
+			</div>
+			<div class="bubble bubble2">
+				<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
+			</div>
 		</div>
 		<div id="mamas" class="dogs">
 		</div>
 		<div id="yard" class="dogs">
 		</div>
-		<div class="cred">&copy;
-			<span>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
+		<div class="cred">
+			&copy;<span>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
 		</div>
 	</body>
 </html>

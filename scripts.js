@@ -80,6 +80,9 @@ function increasePrestige() {
 		BT.yard.style.display = 'none';
 		BT.yard.innerHTML = '';
 		
+		BT.mamas.style.display = 'block';
+		BT.mamas.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
+
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
 		GD.interval = setInterval(gameLoop, GD.data[2]);
