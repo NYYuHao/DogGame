@@ -15,9 +15,15 @@ class GameData {
 
 class HTMLData {
 	constructor() {
+		this.moneyCount = document.getElementById("moneyCount");
+		this.mps = document.getElementById("mps");
 		this.increaseMoney = document.getElementById("increaseMoney");
+
 		this.prestigeButton = document.getElementById("increasePrestige");
 		this.prestigeBubble = document.getElementById("prestige");
+		this.prestigeCount = document.getElementById("prestigeCount");
+		this.prestigeCost = document.getElementById("prestigeCost");
+
 		this.yard = document.getElementById("yard");
 		this.mamas = document.getElementById("mamas");
 

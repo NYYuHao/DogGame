@@ -71,15 +71,14 @@ function increasePrestige() {
 		GD.costs = [10, 100, 1000];
 		
 		//Update HTML to starting point
-		document.getElementById("prestigeCount").innerHTML = GD.prestigeCount;
-		document.getElementById("prestigeCost").innerHTML = GD.prestigeCost;
+		BT.prestigeCount.innerHTML = GD.prestigeCount;
+		BT.prestigeCost.innerHTML = GD.prestigeCost;
 		BT.costs[0].innerHTML = GD.costs[0];
 		BT.costs[1].innerHTML = GD.costs[1];
 		BT.costs[2].innerHTML = GD.costs[2];
 
 		BT.yard.style.display = 'none';
 		BT.yard.innerHTML = '';
-		
 		BT.mamas.style.display = 'block';
 		BT.mamas.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
 
@@ -91,13 +90,12 @@ function increasePrestige() {
 }
 
 function updateCSS() {
-	document.getElementById("moneyCount").innerHTML = GD.money;
-	document.getElementById("MPS").innerHTML = (((GD.data[0] * GD.data[1]) / GD.data[2]) * 1000).toFixed(2);
+	BT.moneyCount.innerHTML = GD.money;
+	BT.mps.innerHTML = (((GD.data[0] * GD.data[1]) / GD.data[2]) * 1000).toFixed(2);
 
 	for (var i = 0; i < BT.buttons.length; i++) {
 		//Update data
 		BT.counts[i].innerHTML = GD.data[i].toFixed(0);
-
 		//Update buttons
 		if (GD.money >= GD.costs[i]) {
 			BT.buttons[i].style.display = 'inline-block';

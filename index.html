@@ -2,21 +2,18 @@
 
 <html>
 	<head>
-		<title>It's a game lol</title>
+		<title>Doggo Clicker</title>
 		<link href="images/favicon.png" rel="icon">
 		<link href="style.css" rel="stylesheet">
 	</head>
-
 	<body onload="initialize()">
-		<div class="bubble">
-			<p>
-				You currently have <span id="moneyCount">0</span> monies.<br>
-				Everytime you click, you gain +<span id="speedCount">1</span> monies.<br>
-				You currently have <span id="dogCount">0</span> doggos 
-				that each click once every <span id="tickCount">1000</span>ms.<br>
-				In total, you are making <span id="MPS">0</span> monies/second.
-			</p>
-		</div>
+		<div class="bubble"><p>
+			You currently have <span id="moneyCount">0</span> monies.<br>
+			Everytime you click, you gain +<span id="speedCount">1</span> monies.<br>
+			You currently have <span id="dogCount">0</span> doggos 
+			that each click once every <span id="tickCount">1000</span>ms.<br>
+			In total, you are making <span id="mps">0</span> monies/second.
+		</p></div>
 		<div class="bubble bubble2">
 			<button id="increaseMoney" onmouseup="increaseMoney(GD.data[0])">Increase monies</button>
 			<button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
@@ -30,23 +27,22 @@
 			</button>
 		</div>
 		<div id="prestige">
-			<div class="bubble">
-				<p>
-					You currently have <span id="prestigeCount">0</span> mama doggos.<br>
-					You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
-					Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
-					Each mama doggo produces a new doggo every 10 ticks.
-				</p>
-			</div>
+			<div class="bubble"><p>
+				You currently have <span id="prestigeCount">0</span> mama doggos.<br>
+				You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
+				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
+				Each mama doggo produces a new doggo every 10 ticks.
+			</p></div>
 			<div class="bubble bubble2">
 				<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
 			</div>
 		</div>
 		<div id="mamas" class="dogs"></div>
 		<div id="yard" class="dogs"></div>
-		<div class="cred">&copy;<span>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span></div>
+		<div class="cred">
+			&copy;<span>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
+		</div>
 	</body>
+	<script src="gamedata.js"></script>
+	<script src="scripts.js"></script>
 </html>
-
-<script src="gamedata.js"></script>
-<script src="scripts.js"></script>
