@@ -26,7 +26,7 @@ a:hover {
 	margin: 10px;
 	border-width: 5px;
 	border-color: #fb0;
-	background-image: url(images/bones.png);
+	background-image: url(images/back/0.png);
 }
 
 .bubble:hover {
@@ -84,7 +84,7 @@ button:disabled {
 .dogs {
 	margin: 10px;
 	padding: 22px 10px 10px 22px;
-	background-image: url(images/grass.png);
+	background-image: url(images/back/1.png);
 	border-radius: 10px;
 	background-color: #9da;
 	display: none;	
