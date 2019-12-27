@@ -2,14 +2,14 @@ var GD = new GameData();
 var BT = new HTMLData();
 
 function initialize() {
-	GD.interval = setInterval(gameLoop, GD.data[2]);
+	GD.interval = setInterval(gameLoop, GD.upgrades[2].data);
 	updateCSS();
 }
 
 function gameLoop() {
-	GD.money += GD.data[0] * GD.data[1];
+	GD.money += GD.upgrades[0].data * GD.upgrades[1].data;
 	if (GD.currentTick % 10 == 0 && GD.prestigeCount > 0) {
-		increaseDogs(GD.prestigeCount);
+		increaseDogs(GD.prestigeCount * GD.upgrades[3].data);
 		GD.currentTick = 0;
 	}
 	GD.currentTick += 1;
@@ -21,10 +21,10 @@ function gameLoop() {
 //func: Corresponding increase function
 //num: Amount to buy
 function tryBuy(item, func, num) {
-	if (GD.money >= GD.costs[item]) {
-		GD.money -= GD.costs[item];
-		GD.costs[item] = Math.floor(GD.costs[item]*GD.costRate[item]);
-		BT.costs[item].innerHTML = GD.costs[item];
+	if (GD.money >= GD.upgrades[item].cost) {
+		GD.money -= GD.upgrades[item].cost;
+		GD.upgrades[item].cost = Math.floor(GD.upgrades[item].cost*GD.upgrades[item].costRate);
+		BT.costs[item].innerHTML = GD.upgrades[item].cost;
 		func(num);
 	}
 }
@@ -38,66 +38,82 @@ function increaseMoney(num) {
 //Figure that out sometime soon
 
 function increaseSpeed(num) {
-	GD.data[0] += num;
+	GD.upgrades[0].data += num;
 	updateCSS();
 }
 
 function increaseDogs(num) {
-	GD.data[1] += num;
+	GD.upgrades[1].data += num;
 	BT.yard.style.display = 'block';
+
+	//***********************************************
+	//***** This loop makes the game very slow ******
+	//***********************************************
 	for (var i = 0; i < num; i++)
 		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
+	//***********************************************
+	//******** We'll find something better **********
+	//***********************************************
+	
+	updateCSS();
+}
+
+function increaseMamaRate(num) {
+	GD.upgrades[3].data += num;
 	updateCSS();
 }
 
 function decreaseInterval(num) {
-	GD.data[2] *= Math.pow(.9, num);
+	GD.upgrades[2].data *= Math.pow(.9, num);
 
 	//Clear and restart interval
 	clearInterval(GD.interval);
-	GD.interval = setInterval(gameLoop, GD.data[2]);
+	GD.interval = setInterval(gameLoop, GD.upgrades[2].data);
 	updateCSS();
 }
 
 function increasePrestige() {
-	if (GD.data[1] >= GD.prestigeCost) {
+	if (GD.upgrades[1].data >= GD.prestigeCost) {
 		//Increase prestige
 		GD.prestigeCount += 1;
 		GD.prestigeCost *= 10;
+		GD.upgrades[3].data += 1;
 
 		//Reset data to starting
-		GD.money = 0;
-		GD.data = [1, 0, 1000];
-		GD.costs = [10, 100, 1000];
+		GD.prestigeReset();
 		
 		//Update HTML to starting point
 		BT.prestigeCount.innerHTML = GD.prestigeCount;
 		BT.prestigeCost.innerHTML = GD.prestigeCost;
-		BT.costs[0].innerHTML = GD.costs[0];
-		BT.costs[1].innerHTML = GD.costs[1];
-		BT.costs[2].innerHTML = GD.costs[2];
+		for (var i = 0; i < BT.costs.length; i++) {
+			BT.costs[i].innerHTML = GD.upgrades[i].cost;
+		}
 
+		//Reset yard and show mamas
 		BT.yard.style.display = 'none';
 		BT.yard.innerHTML = '';
+
 		BT.mamas.style.display = 'block';
 		BT.mamas.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
-
+		
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
-		GD.interval = setInterval(gameLoop, GD.data[2]);
+		GD.interval = setInterval(gameLoop, GD.upgrades[2].data);
 		updateCSS();
 	}
 }
 
 function updateCSS() {
 	BT.moneyCount.innerHTML = GD.money;
-	BT.mps.innerHTML = (((GD.data[0] * GD.data[1]) / GD.data[2]) * 1000).toFixed(2);
+	BT.mps.innerHTML = (((GD.upgrades[0].data * GD.upgrades[1].data) 
+		/ GD.upgrades[2].data) * 1000).toFixed(2);
 
 	for (var i = 0; i < BT.buttons.length; i++) {
 		//Update data
-		BT.counts[i].innerHTML = GD.data[i].toFixed(0);
+		BT.counts[i].innerHTML = GD.upgrades[i].data.toFixed(0);
+
 		//Update buttons
-		if (GD.money >= GD.costs[i]) {
+		if (GD.upgrades[i].visible(GD)) {
 			BT.buttons[i].style.display = 'inline-block';
 			BT.buttons[i].disabled = false;
 		} else {
@@ -106,7 +122,7 @@ function updateCSS() {
 	}
 
 	//Update prestige button
-	if (GD.data[1] >= GD.prestigeCost) {		
+	if (GD.upgrades[1].data >= GD.prestigeCost) {		
 		BT.prestigeBubble.style.display = 'block';
 		BT.prestigeButton.disabled = false;
 	} else {

@@ -15,7 +15,7 @@
 			In total, you are making <span id="mps">0</span> monies/second.
 		</p></div>
 		<div class="bubble bubble2">
-			<button id="increaseMoney" onmouseup="increaseMoney(GD.data[0])">Increase monies</button>
+			<button id="increaseMoney" onmouseup="increaseMoney(GD.upgrades[0].data)">Increase monies</button>
 			<button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
 				Increase monies/click for <span id="speedCost">10</span> monies
 			</button>
@@ -25,13 +25,16 @@
 			<button id="buyTicks" onmouseup="tryBuy(2, decreaseInterval, 1)">
 				Decrease interval by 10% for <span id="tickCost">1000</span> monies
 			</button>
+			<button id="buyMamaRate" onmouseup="tryBuy(3, increaseMamaRate, 1)">
+				Increase the number of doggos produced by mamas for <span id="mamaRateCost">10000</span> monies
+			</button>
 		</div>
 		<div id="prestige">
 			<div class="bubble"><p>
 				You currently have <span id="prestigeCount">0</span> mama doggos.<br>
 				You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
 				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
-				Each mama doggo produces a new doggo every 10 ticks.
+				Each mama doggo produces +<span id="mamaRateCount">1</span> new doggo every 10 ticks.
 			</p></div>
 			<div class="bubble bubble2">
 				<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
