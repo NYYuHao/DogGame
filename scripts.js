@@ -9,7 +9,7 @@ function initialize() {
 function gameLoop() {
 	GD.money += GD.upgrades[0].data * GD.upgrades[1].data;
 	if (GD.currentTick % 10 == 0 && GD.prestigeCount > 0) {
-		increaseDogs(GD.prestigeCount);
+		increaseDogs(GD.prestigeCount * GD.upgrades[3].data);
 		GD.currentTick = 0;
 	}
 	GD.currentTick += 1;
@@ -50,6 +50,11 @@ function increaseDogs(num) {
 	updateCSS();
 }
 
+function increaseMamaRate(num) {
+	GD.upgrades[3].data += num;
+	updateCSS();
+}
+
 function decreaseInterval(num) {
 	GD.upgrades[2].data *= Math.pow(.9, num);
 
@@ -64,21 +69,19 @@ function increasePrestige() {
 		//Increase prestige
 		GD.prestigeCount += 1;
 		GD.prestigeCost *= 10;
+		GD.upgrades[3].data += 1;
 
 		//Reset data to starting
-		GD.money = 0;
-		GD.upgrades[0] = GD.speedInitial.copy();
-		GD.upgrades[1] = GD.dogInitial.copy();
-		GD.upgrades[2] = GD.tickInitial.copy();
-		
+		GD.prestigeReset();
 		
 		//Update HTML to starting point
 		BT.prestigeCount.innerHTML = GD.prestigeCount;
-		Bt.prestigeCost.innerHTML = GD.prestigeCost;
-		BT.costs[0].innerHTML = GD.upgrades[0].cost;
-		BT.costs[1].innerHTML = GD.upgrades[1].cost;
-		BT.costs[2].innerHTML = GD.upgrades[2].cost;
+		BT.prestigeCost.innerHTML = GD.prestigeCost;
+		for (var i = 0; i < BT.costs.length; i++) {
+			BT.costs[i].innerHTML = GD.upgrades[i].cost;
+		}
 
+		//Reset yard and show mamas
 		BT.yard.style.display = 'none';
 		BT.yard.innerHTML = '';
 
@@ -102,7 +105,7 @@ function updateCSS() {
 		BT.counts[i].innerHTML = GD.upgrades[i].data.toFixed(0);
 
 		//Update buttons
-		if (GD.money >= GD.upgrades[i].cost) {
+		if (GD.upgrades[i].visible(GD)) {
 			BT.buttons[i].style.display = 'inline-block';
 			BT.buttons[i].disabled = false;
 		} else {
