@@ -45,8 +45,16 @@ function increaseSpeed(num) {
 function increaseDogs(num) {
 	GD.upgrades[1].data += num;
 	BT.yard.style.display = 'block';
+
+	//***********************************************
+	//***** This loop makes the game very slow ******
+	//***********************************************
 	for (var i = 0; i < num; i++)
 		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
+	//***********************************************
+	//******** We'll find something better **********
+	//***********************************************
+	
 	updateCSS();
 }
 
