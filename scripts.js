@@ -73,8 +73,8 @@ function increasePrestige() {
 		
 		
 		//Update HTML to starting point
-		document.getElementById("prestigeCount").innerHTML = GD.prestigeCount;
-		document.getElementById("prestigeCost").innerHTML = GD.prestigeCost;
+		BT.prestigeCount.innerHTML = GD.prestigeCount;
+		Bt.prestigeCost.innerHTML = GD.prestigeCost;
 		BT.costs[0].innerHTML = GD.upgrades[0].cost;
 		BT.costs[1].innerHTML = GD.upgrades[1].cost;
 		BT.costs[2].innerHTML = GD.upgrades[2].cost;
