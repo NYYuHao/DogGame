@@ -117,6 +117,13 @@ button:disabled {
 	display: inline;
 }
 
+.saveload {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 0px;
+}
+
 #prestige {
 	display: none;
 }

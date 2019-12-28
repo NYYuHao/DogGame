@@ -82,7 +82,7 @@ function increasePrestige() {
 		//Reset data to starting
 		GD.prestigeReset();
 		BT.prestigeReset();
-		
+
 		//Reset yard and show mamas
 		BT.yard.style.display = 'none';
 		BT.yard.innerHTML = '';
@@ -131,6 +131,8 @@ function save() {
 	localStorage.setItem("upgrade2", JSON.stringify(GD.upgrades[2]));
 	localStorage.setItem("upgrade3", JSON.stringify(GD.upgrades[3]));
 }
+
+//TODO: Load needs to properly load dog images as well
 
 function load() {
 	var temp = JSON.parse(localStorage.getItem("save"));
