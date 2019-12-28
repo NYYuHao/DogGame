@@ -54,6 +54,9 @@ function HTMLData() {
 	this.yard = document.getElementById("yard");
 	this.mamas = document.getElementById("mamas");
 
+	this.initialCounts = [1, 0, 1000, 1];
+	this.initialCosts = [10, 100, 1000, 10000];
+
 	this.counts = [];
 	this.counts.push(document.getElementById("speedCount"));
 	this.counts.push(document.getElementById("dogCount"));
@@ -71,4 +74,11 @@ function HTMLData() {
 	this.costs.push(document.getElementById("dogCost"));
 	this.costs.push(document.getElementById("tickCost"));
 	this.costs.push(document.getElementById("mamaRateCost"));
+
+	this.prestigeReset = function() {
+		for (var i = 0; i < this.initialCounts.length; i++) {
+			this.counts[i].innerHTML = this.initialCounts[i];
+			this.costs[i].innerHTML = this.initialCosts[i];
+		}
+	}
 }
