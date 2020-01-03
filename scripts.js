@@ -3,7 +3,7 @@ var BT = new HTMLData();
 
 function initialize() {
 	GD.interval = setInterval(gameLoop, GD.upgrades[2].data);
-	updateCSS();
+	load();
 }
 
 function gameLoop() {
@@ -49,7 +49,7 @@ function increaseDogs(num) {
 	//***********************************************
 	//***** This loop makes the game very slow ******
 	//***********************************************
-	for (var i = 0; i < num; i++)
+	for (var i = 0; i < num && GD.upgrades[1].data < 50; i++)
 		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
 	//***********************************************
 	//******** We'll find something better **********
