@@ -35,35 +35,26 @@ a:hover {
 }
 
 .bubble p {
-	padding: 12px;
-	border-radius: 10px;
+	padding: 5px;
 	background-color: #fd97;
 	display: inline-block;
-	margin: 0 10px 10px 0;
-}
-
-.bubble2 {
-	padding: 10px 4px 0 10px;
+	margin: 0 10px 5px 0;
 }
 
 button {
 	background-color: #fb0;
-	padding: 12px;
+	padding: 10px;
 	border-radius: 10px;
 	border-style: none;
 	box-shadow: 0 5px #7406;
-	margin: 0 6px 15px 0;
+	margin: 0 10px 15px 0;
 	font: inherit;
 	cursor: pointer;
 	display: none;
 }
 
-button:first-child {
+button:first-of-type {
 	display: inline-block;
-}
-
-button:last-child {
-	margin: 0 10px 15px 0;
 }
 
 button:not(:disabled):hover {
@@ -87,13 +78,14 @@ button:disabled {
 
 .dogs {
 	margin: 10px;
-	padding: 22px 7px 7px 22px;
+	padding: 20px 5px 5px 20px;
 	border-radius: 10px;
-	display: none;	
+	display: none;
 }
 
 .dogs img {
-	margin: 0 15px 11px 0;
+	margin: 0 15px 15px 0;
+	vertical-align: bottom;
 }
 
 #yard {
@@ -123,6 +115,13 @@ button:disabled {
 
 .cred:hover span {
 	display: inline;
+}
+
+.saveload {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 0px;
 }
 
 #prestige {

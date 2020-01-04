@@ -7,43 +7,44 @@
 		<link href="style.css" rel="stylesheet">
 	</head>
 	<body onload="initialize()">
-		<div class="bubble"><p>
-			You currently have <span id="moneyCount">0</span> monies.<br>
+		<div class="bubble">
+			<p>You currently have <span id="moneyCount">0</span> monies.<br>
 			Everytime you click, you gain +<span id="speedCount">1</span> monies.<br>
 			You currently have <span id="dogCount">0</span> doggos 
 			that each click once every <span id="tickCount">1000</span>ms.<br>
-			In total, you are making <span id="mps">0</span> monies/second.
-		</p></div>
-		<div class="bubble bubble2">
-			<button id="increaseMoney" onmouseup="increaseMoney(GD.upgrades[0].data)">Increase monies</button>
-			<button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
+			In total, you are making <span id="mps">0</span> monies/second.</p><br>
+			<button id="increaseMoney" onmouseup="increaseMoney(GD.upgrades[0].data)">
+				Increase monies
+			</button><button id="buySpeed" onmouseup="tryBuy(0, increaseSpeed, 1)">
 				Increase monies/click for <span id="speedCost">10</span> monies
-			</button>
-			<button id="buyDog" onmouseup="tryBuy(1, increaseDogs, 1)">
+			</button><button id="buyDog" onmouseup="tryBuy(1, increaseDogs, 1)">
 				Increase doggos for <span id="dogCost">100</span> monies
-			</button>
-			<button id="buyTicks" onmouseup="tryBuy(2, decreaseInterval, 1)">
+			</button><button id="buyTicks" onmouseup="tryBuy(2, decreaseInterval, 1)">
 				Decrease interval by 10% for <span id="tickCost">1000</span> monies
 			</button>
-			<button id="buyMamaRate" onmouseup="tryBuy(3, increaseMamaRate, 1)">
+		</div><div id="prestige" class="bubble">
+			<p>You currently have <span id="prestigeCount">0</span> mama doggos.<br>
+			You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
+			Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
+			Each mama doggo produces +<span id="mamaRateCount">1</span> new doggos every 10 ticks.</p><br>
+			<button id="increasePrestige" onmouseup="increasePrestige()">
+				Prestige
+			</button><button id="buyMamaRate" onmouseup="tryBuy(3, increaseMamaRate, 1)">
 				Increase the number of doggos produced by mamas for <span id="mamaRateCost">10000</span> monies
 			</button>
-		</div>
-		<div id="prestige">
-			<div class="bubble"><p>
-				You currently have <span id="prestigeCount">0</span> mama doggos.<br>
-				You can prestige if you have <span id="prestigeCost">10</span> doggos.<br>
-				Upon prestige, you lose all monies, upgrades and doggos, but gain +1 mama doggo.<br>
-				Each mama doggo produces +<span id="mamaRateCount">1</span> new doggo every 10 ticks.
-			</p></div>
-			<div class="bubble bubble2">
-				<button id="increasePrestige" onmouseup="increasePrestige()">Prestige</button><br>
-			</div>
 		</div>
 		<div id="mamas" class="dogs"></div>
 		<div id="yard" class="dogs"></div>
 		<div class="cred">
 			&copy;<span>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
+		</div>
+		<div class="saveload">
+			<button id="save" onmouseup="save()">
+				Save
+			</button>
+			<button id="load" onmouseup="load()" style="display:inline-block;">
+				Load
+			</button>
 		</div>
 	</body>
 	<script src="gamedata.js"></script>

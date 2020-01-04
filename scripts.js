@@ -3,7 +3,7 @@ var BT = new HTMLData();
 
 function initialize() {
 	GD.interval = setInterval(gameLoop, GD.upgrades[2].data);
-	updateCSS();
+	load();
 }
 
 function gameLoop() {
@@ -49,7 +49,7 @@ function increaseDogs(num) {
 	//***********************************************
 	//***** This loop makes the game very slow ******
 	//***********************************************
-	for (var i = 0; i < num; i++)
+	for (var i = 0; i < num && GD.upgrades[1].data < 50; i++)
 		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
 	//***********************************************
 	//******** We'll find something better **********
@@ -81,13 +81,7 @@ function increasePrestige() {
 
 		//Reset data to starting
 		GD.prestigeReset();
-		
-		//Update HTML to starting point
-		BT.prestigeCount.innerHTML = GD.prestigeCount;
-		BT.prestigeCost.innerHTML = GD.prestigeCost;
-		for (var i = 0; i < BT.costs.length; i++) {
-			BT.costs[i].innerHTML = GD.upgrades[i].cost;
-		}
+		BT.prestigeReset();
 
 		//Reset yard and show mamas
 		BT.yard.style.display = 'none';
@@ -128,4 +122,26 @@ function updateCSS() {
 	} else {
 		BT.prestigeButton.disabled = true;
 	}
+}
+
+function save() {
+	localStorage.setItem("save", JSON.stringify(GD));
+	localStorage.setItem("upgrade0", JSON.stringify(GD.upgrades[0]));
+	localStorage.setItem("upgrade1", JSON.stringify(GD.upgrades[1]));
+	localStorage.setItem("upgrade2", JSON.stringify(GD.upgrades[2]));
+	localStorage.setItem("upgrade3", JSON.stringify(GD.upgrades[3]));
+}
+
+//TODO: Load needs to properly load dog images as well
+
+function load() {
+	var temp = JSON.parse(localStorage.getItem("save"));
+	GD.money = temp.money;
+	GD.prestigeCost = temp.prestigeCost;
+	GD.prestigeCount = temp.prestigeCount;
+	for (var i = 0; i < GD.initials.length; i++) {
+		GD.upgrades[i].data = temp.upgrades[i].data;
+		GD.upgrades[i].cost = temp.upgrades[i].cost;
+	}
+	updateCSS();
 }
