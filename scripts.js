@@ -145,3 +145,9 @@ function load() {
 	}
 	updateCSS();
 }
+
+function hardReset() {
+	GD = new GameData();
+	save();
+	load();
+}
