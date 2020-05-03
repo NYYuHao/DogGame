@@ -2,11 +2,7 @@ body {
  	color: #000;
 	font: 14px / 18px arial;
  	margin: 0;
-}
-
-::selection {
-	background-color: transparent;
-	color: #fff;
+ 	user-select: none;
 }
 
 a {
@@ -14,7 +10,7 @@ a {
 	text-decoration: none;
 }
 
-a:hover {	
+a:hover {
 	color: #fb0;
 }
 

@@ -50,7 +50,7 @@ function increaseDogs(num) {
 	//***** This loop makes the game very slow ******
 	//***********************************************
 	for (var i = 0; i < num && GD.upgrades[1].data < 50; i++)
-		BT.yard.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
+		BT.yard.innerHTML += `<img src="images/dogs/(${Math.floor(Math.random() * 35) + 1}).png">`;
 	//***********************************************
 	//******** We'll find something better **********
 	//***********************************************
@@ -88,7 +88,7 @@ function increasePrestige() {
 		BT.yard.innerHTML = '';
 
 		BT.mamas.style.display = 'block';
-		BT.mamas.innerHTML += `<img src="images/dogs/${Math.floor(Math.random() * Math.floor(50))}.png">`;
+		BT.mamas.innerHTML += `<img src="images/dogs/(${Math.floor(Math.random() * 35) + 1}).png">`;
 		
 		//Restart interval to 1000ms
 		clearInterval(GD.interval);
